@@ -22,8 +22,15 @@ var months = [
 ];
 
 router.get('/', function(req, res){
-  res.send('FreeCodeCamp Timestamp Microservice.');
+  res.send([
+    '<h1>Timestamp Microservice</h1>',
+    'Unix timestamp:',
+    "<code>GET /1234567890</code><br>",
+    'Natural timestamp:',
+    '<code>GET /February 13, 2009</code>'
+  ].join('<br>'));
 });
+
 
 router.get('/favicon.ico', function(req, res){
   res.send('');
@@ -54,5 +61,5 @@ router.get('/:timestamp', function(req, res){
 });
 
 router.listen(process.env.PORT || 3000, function(){
-  console.log('Server listening on port', process.env.PORT);
+  console.log('Server listening on port', process.env.PORT || 3000);
 });
